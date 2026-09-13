@@ -1,0 +1,17 @@
+[Incident-001]
+Error Code: ERR_ITS_COMM_TIMEOUT
+Symptom: Intelligent Transport System (ITS) roadside controller fails to heartbeat with the central server.
+Root Cause: Usually caused by a dropped VPN tunnel or incorrect subnet mask configuration on the local switch interface.
+Resolution Steps: 
+1. Check local interface status using ping or traceroute.
+2. Verify IPsec VPN tunnel status on the gateway router.
+3. Restart the local network daemon if necessary.
+
+[Incident-002]
+Error Code: DB_CONNECTION_REFUSED
+Symptom: PostgreSQL or Chroma database throws connection refused on port 5432 or 8000.
+Root Cause: The database service is not running or another process is occupying the port.
+Resolution Steps:
+1. Run 'netstat -ano | findstr <port>' to check port occupation.
+2. Restart the database service via systemctl or Windows services.
+3. Check firewall rules blocking local loopback traffic.
